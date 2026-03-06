@@ -8,5 +8,5 @@ urlpatterns = [
     path('api/', include('portfolio.urls')),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Servir les médias (images) même en production pour Render
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

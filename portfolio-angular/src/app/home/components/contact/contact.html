@@ -1,0 +1,83 @@
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>
+        Me contacter
+        <span class="heading-bg">Contact</span>
+      </h2>
+      <p>Parlons de votre projet</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        @if (profile(); as p) {
+          <div class="contact-item card-neon">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h5>Email</h5>
+              <a [href]="'mailto:' + p.email">{{ p.email }}</a>
+            </div>
+          </div>
+          <div class="contact-item card-neon">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <h5>Téléphone</h5>
+              <a [href]="'tel:' + p.phone.replace(/\s/g, '')">{{ p.phone }}</a>
+            </div>
+          </div>
+          @if (p.linkedin_url) {
+            <a [href]="p.linkedin_url" target="_blank" rel="noopener" class="contact-item card-neon contact-social">
+              <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+              <div>
+                <h5>LinkedIn</h5>
+                <span>Me retrouver sur LinkedIn</span>
+              </div>
+            </a>
+          }
+          @if (p.github_url) {
+            <a [href]="p.github_url" target="_blank" rel="noopener" class="contact-item card-neon contact-social">
+              <div class="contact-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <h5>GitHub</h5>
+                <span>Voir mes projets</span>
+              </div>
+            </a>
+          }
+        }
+      </div>
+
+      <form class="contact-form card-neon" #contactForm (submit)="$event.preventDefault(); onSubmit(contactForm)">
+        <div class="form-group">
+          <input type="text" id="name" name="name" required placeholder=" " />
+          <label for="name">Nom complet</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" required placeholder=" " />
+          <label for="email">Email</label>
+        </div>
+        <div class="form-group">
+          <input type="text" id="subject" name="subject" required placeholder=" " />
+          <label for="subject">Sujet</label>
+        </div>
+        <div class="form-group">
+          <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+          <label for="message">Message</label>
+        </div>
+        @if (error()) {
+          <p class="form-error">{{ error() }}</p>
+        }
+        @if (success()) {
+          <p class="form-success">Message envoyé avec succès !</p>
+        }
+        <button type="submit" class="btn-neon" [disabled]="loading()">
+          @if (loading()) {
+            Envoi...
+          } @else {
+            <i class="fas fa-paper-plane"></i>
+            Envoyer
+          }
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

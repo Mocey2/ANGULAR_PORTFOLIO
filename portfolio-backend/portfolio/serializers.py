@@ -4,12 +4,13 @@ from .models import Profile, Education, Experience, Skill, Interest, Project, Fa
 
 class ProfileSerializer(serializers.ModelSerializer):
     photo_url = serializers.SerializerMethodField()
+    cv_url = serializers.SerializerMethodField()
 
     class Meta:
         model = Profile
         fields = [
-            'id', 'full_name', 'first_name', 'last_name', 'headline', 'bio_lead', 'bio_paragraph',
-            'email', 'phone', 'photo', 'photo_url',
+            'id', 'full_name', 'first_name', 'last_name', 'headline', 'bio_lead', 'bio_paragraph', 'personality',
+            'email', 'phone', 'photo', 'photo_url', 'cv_url',
             'linkedin_url', 'github_url'
         ]
 
@@ -19,6 +20,14 @@ class ProfileSerializer(serializers.ModelSerializer):
             if request:
                 return request.build_absolute_uri(obj.photo.url)
             return obj.photo.url
+        return None
+
+    def get_cv_url(self, obj):
+        if obj.cv_file:
+            request = self.context.get('request')
+            if request:
+                return request.build_absolute_uri(obj.cv_file.url)
+            return obj.cv_file.url
         return None
 
 

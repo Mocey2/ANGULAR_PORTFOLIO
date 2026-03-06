@@ -1,0 +1,17 @@
+<section class="facts section">
+  <div class="facts-bg"></div>
+  <div class="container">
+    <div class="facts-grid">
+      @for (fact of facts(); track fact.id) {
+        <div class="fact-item">
+          <div class="fact-icon"><i [class]="fact.icon || 'fas fa-star'"></i></div>
+          <span class="fact-number">{{ fact.number }}</span>
+          @if (fact.suffix) {
+            <span class="fact-suffix">{{ fact.suffix }}</span>
+          }
+          <p class="fact-label">{{ fact.label }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

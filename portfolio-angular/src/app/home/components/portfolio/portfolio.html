@@ -1,0 +1,78 @@
+<section class="portfolio section" id="portfolio">
+  <div class="container">
+    <div class="section-title">
+      <h2>
+        Mes projets
+        <span class="heading-bg">Portfolio</span>
+      </h2>
+      <p>Projets académiques et personnels</p>
+    </div>
+
+    <div class="portfolio-categories">
+      <div class="portfolio-category">
+        <h3 class="category-title"><i class="fas fa-graduation-cap"></i> Projets académiques</h3>
+        <div class="portfolio-grid">
+          @for (project of academiques(); track project.id) {
+            <div class="portfolio-item card-neon" (click)="openDetail(project)">
+              <div class="portfolio-image" [class.placeholder]="!getProjectImageUrl(project)">
+                @if (getProjectImageUrl(project)) {
+                  <img [src]="getProjectImageUrl(project)!" [alt]="project.title" />
+                }
+                <div class="portfolio-overlay">
+                  <i class="fas fa-search-plus"></i>
+                  <span>Cliquer pour en savoir plus</span>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <h4>{{ project.title }}</h4>
+                <p>{{ project.short_desc }}</p>
+                <span class="portfolio-tech">{{ project.tech }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="portfolio-category">
+        <h3 class="category-title"><i class="fas fa-user"></i> Projets personnels</h3>
+        <div class="portfolio-grid">
+          @for (project of personnels(); track project.id) {
+            <div class="portfolio-item card-neon" (click)="openDetail(project)">
+              <div class="portfolio-image" [class.placeholder]="!getProjectImageUrl(project)">
+                @if (getProjectImageUrl(project)) {
+                  <img [src]="getProjectImageUrl(project)!" [alt]="project.title" />
+                }
+                <div class="portfolio-overlay">
+                  <i class="fas fa-search-plus"></i>
+                  <span>Cliquer pour en savoir plus</span>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <h4>{{ project.title }}</h4>
+                <p>{{ project.short_desc }}</p>
+                <span class="portfolio-tech">{{ project.tech }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @if (selectedProject(); as project) {
+    <div class="modal-overlay" (click)="closeDetail()">
+      <div class="modal-content card-neon" (click)="$event.stopPropagation()">
+        <button class="modal-close" (click)="closeDetail()" aria-label="Fermer">
+          <i class="fas fa-times"></i>
+        </button>
+        <h3>{{ project.title }}</h3>
+        <p class="modal-desc">{{ project.full_desc }}</p>
+        <div class="modal-tech">
+          <span class="tech-label">Technologies :</span>
+          <span>{{ project.tech }}</span>
+        </div>
+        <span class="modal-type">{{ project.type === 'academique' ? 'Projet académique' : 'Projet personnel' }}</span>
+      </div>
+    </div>
+  }
+</section>

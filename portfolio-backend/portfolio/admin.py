@@ -7,7 +7,7 @@ from .models import (
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'email', 'is_active')
+    list_display = ('full_name', 'email', 'is_active', 'cv_file')
     list_filter = ('is_active',)
 
 

@@ -1,0 +1,24 @@
+<header class="header" [class.scrolled]="scrolled()">
+  <div class="header-inner container">
+    <a href="#home" class="logo">
+      Océane<span>.</span>Konan
+    </a>
+
+    <button class="menu-toggle" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" [class.open]="menuOpen()">
+      @for (item of navItems; track item.href) {
+        <a [href]="item.href" class="nav-link" (click)="closeMenu()">{{ item.label }}</a>
+      }
+      <button class="theme-toggle" (click)="cycleTheme()" title="Changer le thème">
+        @if (themeService.theme() === 'dark') { <i class="fas fa-moon"></i> }
+        @else if (themeService.theme() === 'light') { <i class="fas fa-sun"></i> }
+        @else { <i class="fas fa-palette"></i> }
+      </button>
+    </nav>
+  </div>
+</header>

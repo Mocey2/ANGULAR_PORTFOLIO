@@ -1,0 +1,55 @@
+<section class="resume section" id="resume">
+  <div class="container">
+    <div class="section-title">
+      <h2>
+        Mon parcours
+        <span class="heading-bg">Parcours</span>
+      </h2>
+      <p>Formations et expérience</p>
+    </div>
+
+    <div class="resume-timeline">
+      <div class="timeline-col">
+        <div class="timeline-header">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Formation</h3>
+        </div>
+        <div class="timeline-track">
+          @for (edu of education(); track edu.id) {
+            <div class="timeline-item card-neon">
+              <span class="period">{{ edu.period }}</span>
+              <h4>{{ edu.title }}</h4>
+              <p>{{ edu.place }}</p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="timeline-col">
+        <div class="timeline-header">
+          <i class="fas fa-briefcase"></i>
+          <h3>Expérience</h3>
+        </div>
+        <div class="timeline-track">
+          @for (exp of experience(); track exp.id) {
+            <div class="timeline-item card-neon">
+              <h4>{{ exp.title }}</h4>
+              @if (exp.description) {
+                <p>{{ exp.description }}</p>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-section">
+      <h3 class="skills-title">Technologies</h3>
+      <div class="skills-tags">
+        @for (skill of skills(); track skill.id) {
+          <span class="skill-tag">{{ skill.name }}</span>
+        }
+      </div>
+    </div>
+  </div>
+</section>

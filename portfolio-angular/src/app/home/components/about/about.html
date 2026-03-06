@@ -1,0 +1,35 @@
+<section class="about section" id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>
+        Qui suis-je
+        <span class="heading-bg">À propos</span>
+      </h2>
+      <p>En quelques mots</p>
+    </div>
+
+    @if (profile(); as p) {
+      <div class="about-layout about-text-only">
+        <div class="about-profile card-neon">
+          <div class="profile-text">
+            <p>
+              <span class="lead">{{ p.bio_lead }}</span>, {{ p.bio_paragraph }}
+            </p>
+          </div>
+        </div>
+        <div class="about-personality card-neon">
+          <h3 class="personality-title">Ma personnalité</h3>
+          <p class="personality-text">
+            {{ p.personality || "Joviale et de nature communicative, j'aime aider les autres et partager mes connaissances. La prise de parole ne me pose aucun souci : je n'hésite pas à prendre le lead d'une équipe ou à m'impliquer pleinement dans les activités et projets collectifs." }}
+          </p>
+        </div>
+      </div>
+    } @else {
+      <div class="about-layout">
+        <div class="about-profile card-neon">
+          <p>Chargement...</p>
+        </div>
+      </div>
+    }
+  </div>
+</section>

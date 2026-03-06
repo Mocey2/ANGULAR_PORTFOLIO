@@ -23,6 +23,11 @@ class Command(BaseCommand):
                 "Enthousiaste à l'idée de contribuer à des projets innovants, je souhaite rejoindre "
                 "un environnement professionnel qui valorise l'initiative et la créativité technique."
             ),
+            personality=(
+                "Joviale et de nature communicative, j'aime aider les autres et partager mes connaissances. "
+                "La prise de parole ne me pose aucun souci : je n'hésite pas à prendre le lead d'une équipe "
+                "ou à m'impliquer pleinement dans les activités et projets collectifs."
+            ),
             email='gracemahouk@gmail.com',
             phone='+225 07 87 25 83 54',
             linkedin_url='https://linkedin.com',

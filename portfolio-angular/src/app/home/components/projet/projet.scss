@@ -1,0 +1,32 @@
+.cta {
+  position: relative;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 245, 255, 0.03) 0%,
+    rgba(255, 0, 170, 0.03) 100%
+  );
+  pointer-events: none;
+}
+
+.cta-content {
+  text-align: center;
+  padding: 3rem 2rem !important;
+  position: relative;
+  z-index: 1;
+
+  h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+}

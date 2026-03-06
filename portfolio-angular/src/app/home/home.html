@@ -1,0 +1,19 @@
+<app-preloader />
+<app-header />
+
+<main class="main-content">
+  <app-introduction />
+  <app-about />
+  <app-facts />
+  <app-services />
+  <app-portfolio />
+  <app-projet />
+  <app-resume />
+  <app-testimonial />
+  <app-contact />
+  <app-footer />
+</main>
+
+<button class="to-top" (click)="scrollToTop()" [class.visible]="showToTop()" aria-label="Retour en haut">
+  <i class="fas fa-chevron-up"></i>
+</button>

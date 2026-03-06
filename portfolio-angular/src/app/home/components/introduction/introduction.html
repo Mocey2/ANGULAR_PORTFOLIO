@@ -1,0 +1,63 @@
+<section class="hero" id="home">
+  <div class="hero-bg">
+    @if (photoUrl) {
+      <div class="hero-photo-bg" [style.background-image]="'url(' + photoUrl + ')'"></div>
+    }
+    <div class="grid-overlay"></div>
+    <div class="floating-shapes">
+      <span class="shape shape-1"></span>
+      <span class="shape shape-2"></span>
+      <span class="shape shape-3"></span>
+      <span class="shape shape-4"></span>
+      <span class="shape shape-5"></span>
+      <span class="shape shape-6"></span>
+    </div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-text">
+      <p class="hero-welcome animate-fade-in">
+        Bonjour, je suis
+      </p>
+      <h1 class="hero-title animate-fade-in">
+        <span class="first-name">{{ firstName }}</span>
+        <span class="last-name">{{ lastName }}</span>
+      </h1>
+      <p class="hero-role animate-fade-in">
+        Étudiante en <span class="highlight">{{ headline }}</span>
+      </p>
+      <p class="hero-desc animate-fade-in">
+        Je maîtrise
+        <span class="rotating-word">
+          @for (w of words; track w) {
+            <span class="word" [class.active]="currentWord() === w">{{ w }}</span>
+          }
+        </span>
+        .
+      </p>
+      <div class="hero-actions animate-fade-in">
+        <a href="#contact" class="btn-neon">
+          <i class="fas fa-paper-plane"></i>
+          Me contacter
+        </a>
+        <a [href]="profile()?.cv_url || '/cv.pdf'" download="CV_Mahou_Grace_Oceane_Konan.pdf" class="btn-neon btn-cv">
+          <i class="fas fa-download"></i>
+          Télécharger le CV
+        </a>
+        <a href="#about" class="btn-ghost">
+          En savoir plus
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-indicator">
+    <span class="scroll-text">Défiler</span>
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+  </a>
+</section>

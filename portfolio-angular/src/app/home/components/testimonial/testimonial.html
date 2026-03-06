@@ -1,0 +1,22 @@
+<section class="interests section" id="interests">
+  <div class="container">
+    <div class="section-title">
+      <h2>
+        Centres d'intérêt
+        <span class="heading-bg">Intérêts</span>
+      </h2>
+      <p>Passions et activités</p>
+    </div>
+    <div class="interests-grid">
+      @for (item of interests(); track item.id) {
+        <div class="interest-item card-neon">
+          <i [class]="item.icon || 'fas fa-star'"></i>
+          <h4>{{ item.title }}</h4>
+          @if (item.subtitle) {
+            <p>{{ item.subtitle }}</p>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

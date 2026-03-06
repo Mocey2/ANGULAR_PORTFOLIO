@@ -2,6 +2,8 @@
 
 Ce guide t’explique étape par étape comment déployer ton portfolio (backend Django + frontend Angular) en production.
 
+> **📋 Version simplifiée :** Tu préfères une checklist à cocher ? Ouvre **DEPLOIEMENT_CHECKLIST.md**
+
 ---
 
 ## Vue d’ensemble
@@ -49,7 +51,7 @@ venv/
 
 1. Va sur [github.com](https://github.com) et connecte-toi.
 2. Clique sur **New repository**.
-3. Nom : `portfolio-oceane` (ou autre).
+3. Nom : `ANGULAR_PORTFOLIO` (ou autre).
 4. **Public**.
 5. Ne coche pas "Add a README" (le projet existe déjà).
 6. Clique sur **Create repository**.
@@ -61,11 +63,9 @@ cd C:\Users\Oceane\Desktop\ANGULAR
 git add .
 git commit -m "Initial commit - portfolio complet"
 git branch -M main
-git remote add origin https://github.com/TON-USERNAME/portfolio-oceane.git
+git remote add origin https://github.com/Mocey2/ANGULAR_PORTFOLIO.git
 git push -u origin main
 ```
-
-Remplace `TON-USERNAME` par ton pseudo GitHub.
 
 ---
 
@@ -88,7 +88,7 @@ Remplace `TON-USERNAME` par ton pseudo GitHub.
 
 1. Clique sur **New +** → **Web Service**.
 2. Connecte ton dépôt GitHub (autorise Render si demandé).
-3. Choisis le repo `portfolio-oceane`.
+3. Choisis le repo `ANGULAR_PORTFOLIO`.
 
 ### Configuration du service
 
@@ -186,7 +186,7 @@ git push
 ## 3.3 Importer le projet
 
 1. Clique sur **Add New** → **Project**.
-2. Importe le dépôt `portfolio-oceane`.
+2. Importe le dépôt `ANGULAR_PORTFOLIO`.
 
 ### Configuration
 
